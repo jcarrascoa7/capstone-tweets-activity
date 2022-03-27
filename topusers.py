@@ -20,27 +20,20 @@ def get_top_users(list_of_tweets):
             if user_already_included == False:
                 users.append([tweet['user']['id'], tweet['user']['username'], 1])
 
+    print('users list ready')
 
     for user in users:
-        if len(top) == 0:
+        if len(top) < 10:
             top.append(user)
-
-        elif len(top) > 0 and len(top) < 10:
-            index = 0
-            for element in top:
-                if user[2] > element[2]:
-                    top.insert(index, user)
-                index += 1
+            top = sorted(top, key=lambda x: x[2], reverse=True)
 
         elif len(top) == 10:
             index = 0
             for element in top:
-                if user[2] > element[2]:
+                if user[2] > element[2] and not user in top:
                     top.insert(index, user)
                     top.pop()
                 index += 1
-    
-    print(len(users))
     
     for element in top:
         print(element)
