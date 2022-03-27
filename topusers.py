@@ -15,6 +15,7 @@ def get_top_users(list_of_tweets):
                 if tweet['user']['id'] == user[0]:
                     user_already_included = True
                     user[2] += 1
+                    break
 
             if user_already_included == False:
                 users.append([tweet['user']['id'], tweet['user']['username'], 1])
