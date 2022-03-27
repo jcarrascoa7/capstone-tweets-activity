@@ -20,8 +20,6 @@ def get_top_users(list_of_tweets):
             if user_already_included == False:
                 users.append([tweet['user']['id'], tweet['user']['username'], 1])
 
-    print('users list ready')
-
     for user in users:
         if len(top) < 10:
             top.append(user)
