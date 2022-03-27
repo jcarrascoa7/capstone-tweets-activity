@@ -15,6 +15,8 @@ def main():
     
     option = int(input("1-. Most Retweeted\n2-. Top Days\n3-. Top Users\n4-. Top Hashtags\n"))
 
+    # print(tweets[0])
+
     # call the selected function
     if option == 1:
         mostretweeted.get_most_retweeted(tweets)
